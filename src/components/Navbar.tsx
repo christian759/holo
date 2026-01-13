@@ -33,8 +33,8 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Features', id: 'features' },
-        { name: 'Ecosystem', id: 'ecosystem' },
-        { name: 'Security', id: 'security' },
+        { name: 'Developers', id: 'security' },
+        { name: 'Community', id: 'ecosystem' },
         { name: 'FAQ', id: 'faq' },
     ];
 
@@ -62,7 +62,6 @@ const Navbar = () => {
                             {link.name}
                         </button>
                     ))}
-                    <button onClick={() => scrollToSection('faq')} className="hover:text-white transition-colors cursor-pointer">Developers</button>
                 </div>
 
                 <div className="hidden md:flex items-center gap-4">
