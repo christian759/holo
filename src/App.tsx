@@ -29,13 +29,21 @@ function App() {
           </div>
         </div>
 
-        <Features />
+        <div id="features">
+          <Features />
+        </div>
 
-        <BlockchainBlock />
+        <div id="security">
+          <BlockchainBlock />
+        </div>
 
-        <Community />
+        <div id="ecosystem">
+          <Community />
+        </div>
 
-        <FAQ />
+        <div id="faq">
+          <FAQ />
+        </div>
 
         {/* Pre-footer CTA */}
         <section className="py-32 px-6">
