@@ -1,5 +1,31 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Activity } from 'lucide-react';
+import { useEffect, useState } from 'react';
+
+const NetworkStatus = () => {
+    const [bars, setBars] = useState<number[]>(new Array(20).fill(10));
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setBars(prev => prev.map(() => Math.floor(Math.random() * 40) + 10));
+        }, 100);
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <div className="flex items-end gap-1 h-12">
+            {bars.map((height, i) => (
+                <motion.div
+                    key={i}
+                    initial={{ height: 10 }}
+                    animate={{ height }}
+                    transition={{ duration: 0.1 }}
+                    className="w-1 bg-accent-blue/50 rounded-full"
+                />
+            ))}
+        </div>
+    );
+};
 
 const Hero = () => {
     return (
@@ -49,15 +75,34 @@ const Hero = () => {
                 transition={{ delay: 0.4, duration: 1 }}
                 className="mt-20 relative w-full max-w-5xl aspect-video rounded-3xl overflow-hidden glass-morphism p-2"
             >
-                <div className="w-full h-full bg-zinc-900/50 rounded-2xl border border-white/5 flex items-center justify-center relative overflow-hidden">
+                <div className="w-full h-full bg-zinc-900/50 rounded-2xl border border-white/5 flex flex-col items-center justify-center relative overflow-hidden group">
                     {/* Decorative tech grid overlay */}
-                    <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+                    <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-                    <div className="z-10 text-center">
-                        <div className="w-20 h-20 bg-accent-blue/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-accent-blue/30">
-                            <div className="w-12 h-12 bg-accent-blue rounded-full scale-animation" />
+                    <div className="z-10 flex flex-col items-center gap-6">
+                        <div className="px-6 py-3 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 flex items-center gap-6">
+                            <div className="text-left">
+                                <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1">TPS (Live)</div>
+                                <div className="text-2xl font-mono font-bold text-white flex items-center gap-2">
+                                    142,893 <Activity size={16} className="text-green-500 animate-pulse" />
+                                </div>
+                            </div>
+                            <div className="h-10 w-px bg-white/10" />
+                            <NetworkStatus />
+                            <div className="h-10 w-px bg-white/10" />
+                            <div className="text-left">
+                                <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1">Block Time</div>
+                                <div className="text-2xl font-mono font-bold text-white">400ms</div>
+                            </div>
                         </div>
-                        <p className="text-sm font-mono text-accent-blue">NETWORK_STATUS: ACTIVE</p>
+
+                        <div className="flex gap-2 text-[10px] font-mono text-accent-blue/70">
+                            <span>shards: active</span>
+                            <span>•</span>
+                            <span>latency: &lt;10ms</span>
+                            <span>•</span>
+                            <span>validators: 12k+</span>
+                        </div>
                     </div>
                 </div>
             </motion.div>
@@ -66,16 +111,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes scale-animation {
-    0% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.5; }
-  }
-  .scale-animation {
-    animation: scale-animation 2s infinite ease-in-out;
-  }
-`;
-document.head.appendChild(style);
