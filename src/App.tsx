@@ -2,6 +2,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import BlockchainBlock from './components/BlockchainBlock';
+import Community from './components/Community';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 
 function App() {
@@ -30,6 +32,10 @@ function App() {
         <Features />
 
         <BlockchainBlock />
+
+        <Community />
+
+        <FAQ />
 
         {/* Pre-footer CTA */}
         <section className="py-32 px-6">
