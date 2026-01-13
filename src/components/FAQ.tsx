@@ -65,11 +65,11 @@ const FAQ = () => {
         <section className="py-24 px-6 bg-white/[0.01]">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-black mb-6">Frequently Asked <span className="text-zinc-500 italic">Questions</span></h2>
+                    <h2 className="text-3xl md:text-5xl font-black mb-6">Frequently Asked <span className="text-zinc-500 italic">Questions</span></h2>
                     <p className="text-zinc-400">Everything you need to know about the Holo infrastructure.</p>
                 </div>
 
-                <div className="glass-morphism rounded-[40px] border-white/5 p-8 md:p-12">
+                <div className="glass-morphism rounded-[32px] md:rounded-[40px] border-white/5 p-6 md:p-12">
                     {faqs.map((faq, index) => (
                         <FAQItem
                             key={index}

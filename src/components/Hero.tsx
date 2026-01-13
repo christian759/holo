@@ -48,7 +48,7 @@ const Hero = () => {
                     Next Gen Web3 Infrastructure
                 </div>
 
-                <h1 className="text-5xl md:text-8xl font-black mb-8 leading-[1.1] text-gradient">
+                <h1 className="text-4xl md:text-8xl font-black mb-8 leading-[1.1] text-gradient">
                     The Operating System <br />
                     <span className="text-white">for Digital Assets</span>
                 </h1>
@@ -79,24 +79,26 @@ const Hero = () => {
                     {/* Decorative tech grid overlay */}
                     <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-                    <div className="z-10 flex flex-col items-center gap-6">
-                        <div className="px-6 py-3 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 flex items-center gap-6">
-                            <div className="text-left">
+                    <div className="z-10 flex flex-col items-center gap-6 w-full px-4">
+                        <div className="w-full px-6 py-4 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-6">
+                            <div className="text-center md:text-left">
                                 <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1">TPS (Live)</div>
-                                <div className="text-2xl font-mono font-bold text-white flex items-center gap-2">
+                                <div className="text-2xl font-mono font-bold text-white flex items-center justify-center md:justify-start gap-2">
                                     142,893 <Activity size={16} className="text-green-500 animate-pulse" />
                                 </div>
                             </div>
-                            <div className="h-10 w-px bg-white/10" />
-                            <NetworkStatus />
-                            <div className="h-10 w-px bg-white/10" />
-                            <div className="text-left">
+                            <div className="hidden md:block h-10 w-px bg-white/10" />
+                            <div className="w-full md:w-auto flex justify-center overflow-hidden">
+                                <NetworkStatus />
+                            </div>
+                            <div className="hidden md:block h-10 w-px bg-white/10" />
+                            <div className="text-center md:text-left">
                                 <div className="text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1">Block Time</div>
                                 <div className="text-2xl font-mono font-bold text-white">400ms</div>
                             </div>
                         </div>
 
-                        <div className="flex gap-2 text-[10px] font-mono text-accent-blue/70">
+                        <div className="flex flex-wrap justify-center gap-2 text-[10px] font-mono text-accent-blue/70">
                             <span>shards: active</span>
                             <span>•</span>
                             <span>latency: &lt;10ms</span>

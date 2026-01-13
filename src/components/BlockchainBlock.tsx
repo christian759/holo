@@ -50,7 +50,7 @@ const BlockchainBlock = () => {
                     {/* Decorative tech motifs */}
                     <div className="absolute inset-0 bg-accent-blue/5 rounded-full blur-3xl" />
 
-                    <div className="relative p-12 glass-morphism rounded-[40px] border-white/5 overflow-hidden">
+                    <div className="relative p-6 md:p-12 glass-morphism rounded-[40px] border-white/5 overflow-hidden">
                         <div className="flex items-center justify-between mb-12">
                             <div className="flex gap-2">
                                 <div className="w-3 h-3 rounded-full bg-red-500/50" />
@@ -60,7 +60,7 @@ const BlockchainBlock = () => {
                             <div className="text-[10px] font-mono text-zinc-500 tracking-tighter uppercase italic">contract_v2.0_debug</div>
                         </div>
 
-                        <div className="space-y-4 font-mono text-xs text-zinc-400">
+                        <div className="space-y-4 font-mono text-xs text-zinc-400 overflow-x-auto pb-4">
                             <div className="flex gap-4">
                                 <span className="text-zinc-600">01</span>
                                 <span>contract <span className="text-accent-yellow">HoloVault</span> &#123;</span>

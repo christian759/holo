@@ -23,7 +23,7 @@ const Community = () => {
                             Join millions of developers, creators, and enthusiasts building the future of the decentralized web.
                         </p>
 
-                        <div className="grid grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                             <div>
                                 <div className="text-3xl font-black mb-1">2.4M+</div>
                                 <div className="text-zinc-500 text-sm font-bold uppercase tracking-tighter">Active Wallets</div>
@@ -49,7 +49,7 @@ const Community = () => {
                         viewport={{ once: true }}
                         className="flex-1 relative"
                     >
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-4">
                                 <div className="p-6 glass-morphism rounded-3xl border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
                                     <div className="w-10 h-10 rounded-2xl bg-accent-blue/20 flex items-center justify-center text-accent-blue mb-4">
