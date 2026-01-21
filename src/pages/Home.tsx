@@ -3,6 +3,7 @@ import Features from '../components/Features';
 import BlockchainBlock from '../components/BlockchainBlock';
 import Community from '../components/Community';
 import FAQ from '../components/FAQ';
+import { Link } from 'react-router-dom';
 
 function Home() {
     return (
@@ -45,8 +46,8 @@ function Home() {
                     <h2 className="text-4xl md:text-6xl font-black mb-8 relative z-10">Ready to build the <br /> future of finance?</h2>
                     <p className="text-zinc-400 mb-10 max-w-xl mx-auto relative z-10">Join 10,000+ developers building on the most secure and scalable Web3 infrastructure.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-                        <button className="px-10 py-4 bg-accent-yellow text-background rounded-2xl font-bold glow-yellow hover:scale-105 transition-transform">Get Started Now</button>
-                        <button className="px-10 py-4 bg-white/5 border border-white/10 rounded-2xl font-bold hover:bg-white/10 transition-colors">Contact Sales</button>
+                        <Link to="/docs" className="px-10 py-4 bg-accent-yellow text-background rounded-2xl font-bold glow-yellow hover:scale-105 transition-transform text-center">Get Started Now</Link>
+                        <Link to="/docs" className="px-10 py-4 bg-white/5 border border-white/10 rounded-2xl font-bold hover:bg-white/10 transition-colors text-center">Contact Sales</Link>
                     </div>
                 </div>
             </section>
