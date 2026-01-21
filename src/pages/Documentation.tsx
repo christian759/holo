@@ -1,4 +1,3 @@
-import React from 'react';
 import { Book, Code, Terminal, Zap, Shield, Cpu } from 'lucide-react';
 
 const Documentation = () => {
