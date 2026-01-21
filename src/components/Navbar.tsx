@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,6 +19,12 @@ const Navbar = () => {
 
     const scrollToSection = (id: string) => {
         setIsMobileMenuOpen(false);
+
+        if (location.pathname !== '/') {
+            navigate('/', { state: { scrollTo: id } });
+            return;
+        }
+
         const element = document.getElementById(id);
         if (element) {
             const offset = 80; // height of navbar
@@ -30,6 +39,26 @@ const Navbar = () => {
             });
         }
     };
+
+    // Effect to handle scrolling when navigating back to home from another page
+    useEffect(() => {
+        if (location.pathname === '/' && location.state?.scrollTo) {
+            const id = location.state.scrollTo;
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    const offset = 80;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = element.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            }, 100);
+            // Clear state after scrolling
+            window.history.replaceState({}, document.title);
+        }
+    }, [location]);
 
     const navLinks = [
         { name: 'Features', id: 'features' },
@@ -46,10 +75,10 @@ const Navbar = () => {
                 className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 mx-auto transition-all duration-300 ${isScrolled ? 'max-w-7xl mt-4 rounded-2xl glass-morphism shadow-lg' : 'max-w-full bg-transparent mt-0'
                     }`}
             >
-                <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <Link to="/" className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <div className="w-8 h-8 bg-accent-yellow rounded-lg flex items-center justify-center font-bold text-background text-xl">H</div>
                     <span className="text-xl font-bold tracking-tight">HOLO</span>
-                </div>
+                </Link>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
@@ -62,6 +91,8 @@ const Navbar = () => {
                             {link.name}
                         </button>
                     ))}
+                    <Link to="/docs" className="hover:text-white transition-colors">Docs</Link>
+                    <Link to="/roadmap" className="hover:text-white transition-colors">Roadmap</Link>
                 </div>
 
                 <div className="hidden md:flex items-center gap-4">
@@ -99,6 +130,8 @@ const Navbar = () => {
                                     {link.name}
                                 </button>
                             ))}
+                            <Link to="/docs" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-accent-yellow transition-colors">Docs</Link>
+                            <Link to="/roadmap" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-accent-yellow transition-colors">Roadmap</Link>
                             <hr className="border-white/10" />
                             <button className="text-xl font-medium text-zinc-400">Sign In</button>
                             <button className="py-4 bg-accent-yellow text-background rounded-2xl text-xl font-bold">
