@@ -1,4 +1,3 @@
-import React from 'react';
 import { Server, Shield, Zap, Globe, Cpu, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
 

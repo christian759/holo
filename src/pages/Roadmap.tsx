@@ -1,5 +1,4 @@
-import React from 'react';
-import { CheckCircle2, Circle, Flag, Rocket, Target, Users } from 'lucide-react';
+import { CheckCircle2, Rocket } from 'lucide-react';
 
 const Roadmap = () => {
     const milestones = [
