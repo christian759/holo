@@ -1,4 +1,5 @@
 import { Shield, Lock, Eye, CheckCircle, ShieldAlert } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Security = () => {
     return (
@@ -69,9 +70,12 @@ const Security = () => {
                                 vulnerability reports. Join our community of white-hat hackers and help
                                 us build the most secure network in history.
                             </p>
-                            <button className="px-8 py-4 bg-white text-background rounded-2xl font-bold hover:scale-105 transition-transform">
+                            <Link
+                                to="/docs"
+                                className="inline-block px-8 py-4 bg-white text-background rounded-2xl font-bold hover:scale-105 transition-transform"
+                            >
                                 Submit a Finding
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

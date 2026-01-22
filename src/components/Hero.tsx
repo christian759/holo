@@ -60,7 +60,7 @@ const Hero = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Link to="/docs" className="w-full sm:w-auto px-8 py-4 bg-white text-background rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-white/90 transition-colors">
+                    <Link to="/auth" className="w-full sm:w-auto px-8 py-4 bg-white text-background rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-white/90 transition-colors">
                         Get Started <ArrowUpRight size={20} />
                     </Link>
                     <Link to="/docs" className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 rounded-2xl font-bold hover:bg-white/10 transition-colors">

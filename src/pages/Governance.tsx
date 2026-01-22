@@ -1,4 +1,5 @@
 import { Gavel, FileText, Vote, } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Governance = () => {
     return (
@@ -19,12 +20,12 @@ const Governance = () => {
                             Shape the future of the protocol.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <button className="px-8 py-4 bg-accent-yellow text-background rounded-2xl font-bold hover:scale-105 transition-transform">
+                            <Link to="/auth" className="px-8 py-4 bg-accent-yellow text-background rounded-2xl font-bold hover:scale-105 transition-transform text-center">
                                 Stake & Vote
-                            </button>
-                            <button className="px-8 py-4 bg-white/5 border border-white/10 rounded-2xl font-bold hover:bg-white/10 transition-colors">
+                            </Link>
+                            <Link to="/docs" className="px-8 py-4 bg-white/5 border border-white/10 rounded-2xl font-bold hover:bg-white/10 transition-colors text-center">
                                 View Proposals
-                            </button>
+                            </Link>
                         </div>
                     </div>
                     <div className="flex-1 relative">

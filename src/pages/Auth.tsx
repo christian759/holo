@@ -55,7 +55,7 @@ const Auth = () => {
                 </form>
 
                 <p className="text-center mt-8 text-sm text-zinc-500">
-                    Don't have an account? <a href="#" className="text-accent-yellow font-bold hover:underline">Create one</a>
+                    Don't have an account? <button onClick={(e) => e.preventDefault()} className="text-accent-yellow font-bold hover:underline cursor-pointer">Create one</button>
                 </p>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Server, Shield, Zap, Globe, Cpu, Database } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Infrastructure = () => {
     const features = [
@@ -71,9 +72,9 @@ const Infrastructure = () => {
                                 Our infrastructure is built with developer experience as a first-class citizen.
                                 Deploy with confidence using industry-standard tools and languages you already know.
                             </p>
-                            <button className="px-8 py-4 bg-white text-background rounded-2xl font-bold hover:scale-105 transition-transform">
+                            <Link to="/docs" className="inline-block px-8 py-4 bg-white text-background rounded-2xl font-bold hover:scale-105 transition-transform">
                                 Explore the Protocol
-                            </button>
+                            </Link>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="p-6 rounded-3xl bg-black/40 backdrop-blur-xl border border-white/10">
