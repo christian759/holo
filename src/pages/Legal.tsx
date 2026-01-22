@@ -1,4 +1,3 @@
-import React from 'react';
 
 const LegalPage = ({ title }: { title: string }) => {
     return (

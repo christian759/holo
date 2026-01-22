@@ -1,5 +1,4 @@
-import React from 'react';
-import { Users, Gavel, FileText, Vote, ShieldCheck, PieChart } from 'lucide-react';
+import { Gavel, FileText, Vote, } from 'lucide-react';
 
 const Governance = () => {
     return (

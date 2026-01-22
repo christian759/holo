@@ -8,6 +8,7 @@ import Roadmap from './pages/Roadmap';
 import Infrastructure from './pages/Infrastructure';
 import Governance from './pages/Governance';
 import Security from './pages/Security';
+import Auth from './pages/Auth';
 import NotFound from './pages/NotFound';
 import LegalPage from './pages/Legal';
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/infrastructure" element={<Infrastructure />} />
           <Route path="/governance" element={<Governance />} />
           <Route path="/security" element={<Security />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/privacy" element={<LegalPage title="Privacy Policy" />} />
           <Route path="/terms" element={<LegalPage title="Terms of Service" />} />
           <Route path="/cookies" element={<LegalPage title="Cookie Policy" />} />

@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Github, Chrome } from 'lucide-react';
+import { Github, Chrome } from 'lucide-react';
 
 const Auth = () => {
     return (
