@@ -39,7 +39,12 @@ const Documentation = () => {
                                 <ul className="space-y-3">
                                     {section.items.map((item) => (
                                         <li key={item}>
-                                            <a href="#" className="text-zinc-400 hover:text-white transition-colors text-sm">{item}</a>
+                                            <button
+                                                onClick={(e) => e.preventDefault()}
+                                                className="text-zinc-400 hover:text-white transition-colors text-sm text-left w-full cursor-pointer"
+                                            >
+                                                {item}
+                                            </button>
                                         </li>
                                     ))}
                                 </ul>

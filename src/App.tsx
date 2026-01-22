@@ -41,6 +41,7 @@ function App() {
           <Route path="/governance" element={<Governance />} />
           <Route path="/security" element={<Security />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/grants" element={<Documentation />} /> {/* Placeholder for grants */}
           <Route path="/privacy" element={<LegalPage title="Privacy Policy" />} />
           <Route path="/terms" element={<LegalPage title="Terms of Service" />} />
           <Route path="/cookies" element={<LegalPage title="Cookie Policy" />} />

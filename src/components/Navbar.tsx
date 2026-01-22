@@ -61,11 +61,20 @@ const Navbar = () => {
     }, [location]);
 
     const navLinks = [
-        { name: 'Features', id: 'features' },
-        { name: 'Developers', id: 'security' },
-        { name: 'Community', id: 'ecosystem' },
-        { name: 'FAQ', id: 'faq' },
+        { name: 'Features', id: 'features', path: '/' },
+        { name: 'Infrastructure', path: '/infrastructure' },
+        { name: 'Governance', path: '/governance' },
+        { name: 'Security', path: '/security' },
     ];
+
+    const handleNavClick = (link: { name: string, id?: string, path: string }) => {
+        setIsMobileMenuOpen(false);
+        if (link.id) {
+            scrollToSection(link.id);
+        } else {
+            navigate(link.path);
+        }
+    };
 
     return (
         <>
@@ -75,31 +84,41 @@ const Navbar = () => {
                 className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 mx-auto transition-all duration-300 ${isScrolled ? 'max-w-7xl mt-4 rounded-2xl glass-morphism shadow-lg' : 'max-w-full bg-transparent mt-0'
                     }`}
             >
-                <Link to="/" className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    <div className="w-8 h-8 bg-accent-yellow rounded-lg flex items-center justify-center font-bold text-background text-xl">H</div>
-                    <span className="text-xl font-bold tracking-tight">HOLO</span>
-                </Link>
+                <div className="flex items-center gap-8">
+                    <Link to="/" className="flex items-center gap-2 cursor-pointer" onClick={() => {
+                        if (location.pathname === '/') {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                    }}>
+                        <div className="w-8 h-8 bg-accent-yellow rounded-lg flex items-center justify-center font-bold text-background text-xl">H</div>
+                        <span className="text-xl font-bold tracking-tight">HOLO</span>
+                    </Link>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-                    {navLinks.map((link) => (
-                        <button
-                            key={link.name}
-                            onClick={() => scrollToSection(link.id)}
-                            className="hover:text-white transition-colors cursor-pointer"
-                        >
-                            {link.name}
-                        </button>
-                    ))}
-                    <Link to="/docs" className="hover:text-white transition-colors">Docs</Link>
-                    <Link to="/roadmap" className="hover:text-white transition-colors">Roadmap</Link>
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
+                        {navLinks.map((link) => (
+                            <button
+                                key={link.name}
+                                onClick={() => handleNavClick(link)}
+                                className="hover:text-white transition-colors cursor-pointer"
+                            >
+                                {link.name}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
-                <div className="hidden md:flex items-center gap-4">
-                    <Link to="/auth" className="text-sm font-medium hover:text-accent-yellow transition-colors">Sign In</Link>
-                    <Link to="/auth" className="px-5 py-2.5 bg-accent-yellow text-background rounded-xl text-sm font-bold glow-yellow hover:scale-105 transition-transform active:scale-95">
-                        Launch App
-                    </Link>
+                <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                    <div className="flex items-center gap-6">
+                        <Link to="/docs" className="hover:text-white transition-colors">Docs</Link>
+                        <Link to="/roadmap" className="hover:text-white transition-colors">Roadmap</Link>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <Link to="/auth" className="text-sm font-medium hover:text-accent-yellow transition-colors">Sign In</Link>
+                        <Link to="/auth" className="px-5 py-2.5 bg-accent-yellow text-background rounded-xl text-sm font-bold glow-yellow hover:scale-105 transition-transform active:scale-95">
+                            Launch App
+                        </Link>
+                    </div>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -120,11 +139,11 @@ const Navbar = () => {
                         exit={{ opacity: 0, y: -20 }}
                         className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl pt-32 px-6 md:hidden"
                     >
-                        <div className="flex flex-col gap-8 text-2xl font-bold text-center">
+                        <div className="flex flex-col gap-6 text-xl font-bold text-center">
                             {navLinks.map((link) => (
                                 <button
                                     key={link.name}
-                                    onClick={() => scrollToSection(link.id)}
+                                    onClick={() => handleNavClick(link)}
                                     className="hover:text-accent-yellow transition-colors"
                                 >
                                     {link.name}
